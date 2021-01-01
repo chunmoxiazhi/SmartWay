@@ -1,0 +1,91 @@
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <form  #search="ngForm" (ngSubmit)="searchJobs(search)">
+                <br><br>
+                <div class="form-group">
+                    <!-- <label class="control-label" for="docket" >Docket: </label> -->
+                    <input type="text" class="form-control" id="docket" name="docket" placeholder="Docket Number" [(ngModel)]="docket" autofocus>
+                </div>
+               
+                <div class="form-group">
+                    <!-- <label class="control-label" for="title" >Title: </label> -->
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Book Title"[(ngModel)]="title" autofocus>
+                </div>
+                <div class="form-group">
+                    <!-- <label class="control-label" for="customer" >Customer: </label> -->
+                    <input type="text" class="form-control" id="customer" name="customer" placeholder="Customer Name"[(ngModel)]="customer" autofocus >
+                </div>
+                <div class="form-group">
+                    <!-- <label class="control-label" for="quote" >Quote: </label> -->
+                    <input type="text" class="form-control" id="quote" name="quote" placeholder="Quote Number" [(ngModel)]="quote" autofocus pattern="[0-9 ]*">
+                </div>
+                <div class="form-group">
+                    <!-- <label class="control-label" for="service" >Service: </label> -->
+                    <input type="text" class="form-control" id="service" name="service" placeholder="Service" [(ngModel)]="service" autofocus >
+                </div>
+                <div class="form-group">
+                    <!-- <label class="control-label" for="purchase" >PO Number: </label> -->
+                    <input type="text" class="form-control" id="purchase" name="purchase" placeholder="PO Number" [(ngModel)]="purchase" autofocus >
+                </div>
+                <div class="form-group">
+                    <!-- <label class="control-label" for="pCount" >Page Count: </label> -->
+                    <input type="text" class="form-control" id="pCount" name="pCount" placeholder="Page Count" [(ngModel)]="pCount" autofocus  pattern="[0-9 ]*">
+                </div>
+                <div class="form-group">
+                    <!-- <label class="control-label" for="desc" >Description: </label> -->
+                    <input type="text" class="form-control" id="desc" name="desc" placeholder="Description" [(ngModel)]="desc" autofocus >
+                </div>
+                <div class="form-group">
+                    <label for="cover">Cover:</label>
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="cover" name="cover"  [(ngModel)]="cover"/></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="status" >Current Status: </label>
+                    <select class="form-control" id="status" name="status" [(ngModel)]="status" autofocus >
+                        <option value="Job Created">Job Created</option>
+                        <option value="Materials Received">Materials Received</option>
+                        <option value="Ready for Shipment">Ready for Shipment</option>
+                        <option value="All Shipped">All Shipped</option>
+                        <option value="Partial Shipped">Partial Shipped</option>
+                        <option value="Suspended">Suspended</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <div class="form-group"> 
+                    
+                    <label for="cash">Cash:</label>
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="cash"  name="cash" [(ngModel)]="cash"/></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate" >Start Date:</label>
+                    <!-- <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate"  #startDate [value]="startDate" /> -->
+                    <input [ngModel]="startDate | date:'yyyy-MM-dd'" (ngModelChange)="startDate = $event" type="date" name="startDate"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate" >End Date:</label>
+                    <input [ngModel]="endDate | date:'yyyy-MM-dd'" (ngModelChange)="endDate = $event" type="date" name="endDate"/>
+                    <!-- <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate"  #endDate [value]="endDate" /> -->
+                </div>
+
+
+
+
+                <div class="pull-right">
+                    <!-- <button class="btn btn-danger btn-sm" (click)="deleteJob(editableJob._id)">Delete Job</button> &nbsp;  -->
+                    <button type="submit" class="btn btn-success btn-sm">Search Job</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />

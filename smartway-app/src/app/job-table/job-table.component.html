@@ -1,0 +1,52 @@
+<br />
+<br>
+<div class="container">
+
+    <div class="row">
+        <aside class="col-lg-2">
+
+            <app-control-bar ></app-control-bar >
+        </aside>
+        <div class="col-md-10">
+            <a [routerLink]="['/jobs/newJob']" class="btn btn-success btn-sm pull-right">+&nbsp;&nbsp;Create New Job</a><br /><br />
+            <br /><br /><br />
+
+
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Docket</th>
+                        <th>Customer</th>
+                        <!-- <th>PO Number</th> -->
+                        <th>Job Name</th>
+                        <th>Page Count</th>
+                        <th>Cover</th>
+                        <th>Service(s)</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let job of jobs" (click)="rowClicked($event, job._id)">
+
+                        <td>{{job.docketNumber}}</td>
+                        <td>{{job.customerName}}</td>
+                        <td>{{job.bookTitle}}</td>
+                        <td>{{job.pageCount}}</td>
+                        <td>{{job.cover}}</td>
+                        <td>{{job.services}}</td>
+                        <td>{{job.dueDate | date:'mediumDate'}}</td>
+ 
+                    </tr>
+                </tbody>
+            </table>
+            <div class="w-100">
+                <app-paging [page]="page" (newPage)="getPage($event)"></app-paging>
+            </div>
+        </div>
+
+
+        
+    </div>
+</div>
+<br />

@@ -1,0 +1,103 @@
+<br />
+<div class="container" *ngIf="editableJob">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+           
+                <form  #validEdit="ngForm" (ngSubmit)="submitUpdateJob(validEdit)">
+                    <br><br>
+                    <div>
+                        <h3><strong>Docket Number: {{editableJob.docketNumber}}</strong></h3> <br>
+                       
+                    </div>
+    
+                    <div class="form-group"[class.has-error]="customer.errors">
+                        <label class="control-label" for="customer" [class.text-danger]="customer.invalid">Customer: </label>
+                        <input type="text" class="form-control" id="customer" name="customer" [(ngModel)]="editableJob.customerName" required autofocus #customer="ngModel">
+                        <span *ngIf="customer.errors?.required" class="help-block"><strong>Invalid Customer Name: Please fill in the blank.</strong></span>
+                    </div>
+    
+                    <div class="form-group"[class.has-error]="PONumber.errors">
+                        <label class="control-label" for="PONumber" >Purchase Order Number: </label>
+                        <input type="text" class="form-control" id="PONumber" name="PONumber" [(ngModel)]="editableJob.PONumber" autofocus #PONumber="ngModel">
+                        
+                    </div>
+    
+                    <div class="form-group" [class.has-error]="title.errors">
+                        <label for="title" [class.text-danger]="title.invalid">Title</label>
+                        <input type="text" class="form-control" id="title" #title="ngModel" name="title" [(ngModel)]="editableJob.bookTitle"  required>
+                        <span *ngIf="title.errors?.required" class="help-block"><strong>Invalid Title: Please fill in blank</strong></span>
+                    </div>
+    
+                    <div class="form-group" [class.has-error]="pageCount.errors">
+                       
+                            <label for="pageCount" [class.text-danger]="pageCount.invalid">Page Count:</label>
+                            <input type="text" class="form-control" id="pageCount" #pageCount="ngModel" name="pageCount" [(ngModel)]="editableJob.pageCount"  required>
+                            <span *ngIf="pageCount.errors?.required" class="help-block"><strong>Invalid page count: Please fill in blank</strong></span>
+                     
+                            <label for="cover">Cover:</label>
+                            <div class="checkbox">
+                                <label><input type="checkbox" id="cover" name="cover" #cover="ngModel" name="cover" [(ngModel)]="editableJob.cover"/></label>
+                            </div>
+                    </div>
+    
+                    <div class="form-group" [class.has-error]="quoteNumber.errors">
+                        <label for="quoteNumber" [class.text-danger]="quoteNumber.invalid">Quote Number: </label>
+                        <input type="text" class="form-control" id="quoteNumber" name="quoteNumber" [(ngModel)]="editableJob.quoteNumber" required pattern="[0-9 ]*" #quoteNumber="ngModel">
+                        <span *ngIf ="services.errors?.required" class="help-block"><strong>Invalid Service: Please fill in blank</strong></span>
+                        <span *ngIf="services.errors?.pattern" class="help-block"><strong>Invalid Tags: Special characters not allowed. Use "," to seperate services.</strong></span>
+                    </div>
+    
+    
+    
+                    <div class="form-group" [class.has-error]="services.errors">
+                        <label for="services" [class.text-danger]="services.invalid">Services: </label>
+                        <textarea class="form-control" id="services" name="services" [(ngModel)]="editableJob.services" required pattern="[,a-zA-Z0-9 ]*" #services="ngModel"></textarea>
+                        <span *ngIf ="services.errors?.required" class="help-block"><strong>Invalid Service: Please fill in blank</strong></span>
+                        <span *ngIf="services.errors?.pattern" class="help-block"><strong>Invalid Service: Special characters not allowed. Use "," to seperate services.</strong></span>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" style="min-height:200px" id="description" name="description" #description="ngModel" [(ngModel)]="editableJob.description"  [innerHTML]="editableJob.description"></textarea>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="dueDate" >Due Date:</label>
+                        <input type="date" id="dueDate"  #dueDate [value]="editableJob.dueDate | date:'yyyy-MM-dd'" (input)="editableJob.dueDate=parseDate($event.target.value)" />
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="status" >Current Status: </label>
+                        <select class="form-control" id="status" name="status"[(ngModel)]="editableJob.status" >
+                            <option value="Job Created">Job Created</option>
+                            <option value="Materials Received">Materials Received</option>
+                            <option value="Ready for Shipment">Ready for Shipment</option>
+                            <option value="All Shipped">All Shipped</option>
+                            <option value="Partial Shipped">Partial Shipped</option>
+                            <option value="Suspended">Suspended</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group"> 
+                        
+                        <label for="cash">Cash:</label>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cash" name="cash" #cash="ngModel" name="cash" [(ngModel)]="editableJob.isCash"/></label>
+                        </div>
+                </div>
+    
+    
+    
+                    <div class="pull-right">
+                        <button class="btn btn-danger btn-sm" (click)="deleteJob(editableJob._id)">Delete Job</button> &nbsp; 
+                        <button type="submit" class="btn btn-success btn-sm" [disabled]="validEdit.invalid">Update Job</button>
+                    </div>
+                </form>
+
+            
+            
+        </div>
+    </div>
+</div>
+<br />

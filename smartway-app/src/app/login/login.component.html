@@ -1,22 +1,28 @@
 <br />
-<div class="container" *ngIf="loginUser">
+<div class="container" *ngIf="user">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6 mx-auto">
             <form  #validLogin="ngForm" (ngSubmit)="loginSubmit(validLogin)">
+                <br> <br> <br>
+                <h3><strong>Attention: Only authorized administrators are allowed to access.</strong></h3>
+                <br> <br> <br> <br> <br> 
                 <div class="form-group"[class.has-error]="email.errors">
-                    <!-- <label class="control-label" for="email" [class.text-danger]="email.invalid">Email</label> -->
-                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="loginUser.email" required autofocus #email="ngModel">
-                    <!-- <span *ngIf="email.errors?.required" class="help-block"><strong>Invalid email address!</strong></span> -->
+                    <label class="control-label" for="email" [class.text-danger]="email.invalid">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email" required autofocus #email="ngModel">
                 </div>
                 <div class="form-group"[class.has-error]="password.errors">
-                    <!-- <label class="control-label" for="email" [class.text-danger]="email.invalid">Email</label> -->
-                    <input type="text" class="form-control" id="password" name="password" [(ngModel)]="loginUser.password" required autofocus #password="ngModel">
-                    <!-- <span *ngIf="email.errors?.required" class="help-block"><strong>Invalid email address!</strong></span> -->
+                    <label class="control-label" for="email" [class.text-danger]="email.invalid">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" required autofocus #password="ngModel">
                 </div>
 
                 <div class="pull-right">
                     <button type="submit" class="btn btn-success btn-sm" [disabled]="validLogin.invalid">Log In</button>
                 </div>
+                <br> <br> <br>
+                <div class="alert alert-danger" *ngIf="warning">
+                    {{warning}}
+                  </div>
+                   <br> <br> <br> <br> <br> <br> <br> <br> 
             </form>
         </div>
     </div>
