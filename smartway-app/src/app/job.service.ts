@@ -71,16 +71,16 @@ export class JobService {
 
     let ending = pageNum.concat(serviceEnd).concat(customerEnd).concat(titleEnd).concat(docketEnd).concat(poEnd).concat(pCoundEnd).concat(cashEnd).concat(startEnd).concat(endEnd).concat(descEnd).concat(statusEnd);
 
-    return this.http.get<Job[]>(`https://smartwayserver.herokuapp.com//jobs${ending}`);
+    return this.http.get<Job[]>(`https://smartwayserver.herokuapp.com/jobs${ending}`);
 
   }
 
   getJobById(id): Observable<Job>{
-    return this.http.get<Job>(`https://smartwayserver.herokuapp.com//jobs/${id}`);
+    return this.http.get<Job>(`https://smartwayserver.herokuapp.com/jobs/${id}`);
   }
 
   addNewJob(data: Job):Observable<any>{
-    return this.http.post<any>(`https://smartwayserver.herokuapp.com//jobs`, data);
+    return this.http.post<any>(`https://smartwayserver.herokuapp.com/jobs`, data);
   }
 
 
