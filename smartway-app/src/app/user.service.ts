@@ -13,30 +13,26 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   registerUser(user: User): Observable<any> {
-    return this.http.post<any>(`http://localhost:8080/manager/registration`, user);
+    return this.http.post<any>(`https://smartwayserver.herokuapp.com/manager/registration`, user);
   }
 
   getAllUsers(): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/manager`);
+    return this.http.get<any>(`https://smartwayserver.herokuapp.com/manager`);
   }
 
   getUserById(id): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/manager/${id}`);
+    return this.http.get<any>(`https://smartwayserver.herokuapp.com/manager/${id}`);
   }
 
   updateUserById(data, id): Observable<any> {
-    return this.http.put<any>(`http://localhost:8080/manager/${id}`, data);
+    return this.http.put<any>(`https://smartwayserver.herokuapp.com/manager/${id}`, data);
   }
 
   deleteUserById(id): Observable<any> {
-    return this.http.delete<any>(`http://localhost:8080/manager/${id}`);
+    return this.http.delete<any>(`https://smartwayserver.herokuapp.com/manager/${id}`);
   }
-  //Login
-  // loginUser(data: LoginUser): Observable<any> {
-  //   return this.http.post<any>(`http://localhost:8080/login`, data);
-  // }
   questionResponse(visitor: Visitor):Observable<any> {
-  return this.http.post<any>(`http://localhost:8080/question`, visitor);
+  return this.http.post<any>(`https://smartwayserver.herokuapp.com/question`, visitor);
   }
 
 }

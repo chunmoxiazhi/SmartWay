@@ -71,25 +71,25 @@ export class JobService {
 
     let ending = pageNum.concat(serviceEnd).concat(customerEnd).concat(titleEnd).concat(docketEnd).concat(poEnd).concat(pCoundEnd).concat(cashEnd).concat(startEnd).concat(endEnd).concat(descEnd).concat(statusEnd);
 
-    return this.http.get<Job[]>(`http://localhost:8080/jobs${ending}`);
+    return this.http.get<Job[]>(`https://smartwayserver.herokuapp.com//jobs${ending}`);
 
   }
 
   getJobById(id): Observable<Job>{
-    return this.http.get<Job>(`http://localhost:8080/jobs/${id}`);
+    return this.http.get<Job>(`https://smartwayserver.herokuapp.com//jobs/${id}`);
   }
 
   addNewJob(data: Job):Observable<any>{
-    return this.http.post<any>(`http://localhost:8080/jobs`, data);
+    return this.http.post<any>(`https://smartwayserver.herokuapp.com//jobs`, data);
   }
 
 
   updateJobById( data: Job, id: string): Observable<any> {
-    return this.http.put<any>(`http://localhost:8080/jobs/${id}`, data);
+    return this.http.put<any>(`https://smartwayserver.herokuapp.com/jobs/${id}`, data);
   }
 
   deleteJobById(id: string): Observable<any> {
-     return this.http.delete<any>(`http://localhost:8080/jobs/${id}`);
+     return this.http.delete<any>(`https://smartwayserver.herokuapp.com/jobs/${id}`);
   }
 
 }
