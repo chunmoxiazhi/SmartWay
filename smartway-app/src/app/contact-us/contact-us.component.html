@@ -1,1 +1,56 @@
-<p>contact-us works!</p>
+
+  <br><br><br><br><br><br>
+  <section class="featured-posts no-padding-top">
+    <div class="container ">
+        <div class="col-md-12 mx-auto">
+        <div class="text col-lg-7">
+          <div class="text-inner d-flex align-items-center">
+            <div class="content">
+              <header class="post-header">
+                <div class="category"></div>
+                  <h2 class="h2">SMART WAY BINDING</h2> <br>
+                  <h2 class="h4">Phone: (416) 638-2001</h2>
+                  <h2 class="h4">Address: 5050 Dufferin St. Unit 129, North York, ON M3H 5T5</h2>
+                  <h2 class="h4">Email: smartway.production@gmail.com</h2><br>
+              </header>
+              <!-- <h3>Have question?</h3> -->
+              <div class="form-holder">
+                <form #q="ngForm" (ngSubmit)="submitQuestion(q)">
+                    <div class="form-group" [class.has-error]="email.errors">
+                        <input type="email" class="form-control" id="email" #email="ngModel" name="email" [(ngModel)]="visitor.email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group" [class.has-error]="question.errors">
+                        <textarea class="form-control" style="min-height:80px" id="question" name="question" #question="ngModel" [(ngModel)]="visitor.question"  placeholder="Leave us your question, and get response within 2 hours."     [innerHTML]="visitor.question" required></textarea>
+                    </div>
+                    
+                    <div class="pull-right"><button type="submit" class="submit" [disabled]="q.invalid">Submit</button></div>
+              
+                </form>
+            </div>
+
+            </div>
+          </div>
+        </div>
+        <div class=" col-lg-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d183992.88381216643!2d-79.56794888874833!3d43.899569568900624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7e6ff506383a2f6!2sSmart%20Way%20Binding%20Service!5e0!3m2!1szh-CN!2sca!4v1609561483438!5m2!1szh-CN!2sca" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+        
+        </div>
+      </div>
+  </section>
+
+  <section class="newsletter no-padding-top">    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-8">
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Gallery Section-->
+
+  
+  

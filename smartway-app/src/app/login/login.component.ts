@@ -20,13 +20,6 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // if(!this.auth.isAuthenticated()){
-    //   this.user = new User();
-     
-    // }
-    // else{
-    //   this.router.navigate(['/jobs']);
-    // }
     this.user = new User();
   }
 
@@ -40,7 +33,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/jobs']);
       },
       (err) => {
-        this.warning = err.error.message;
+        this.warning = `Invalid email and/or password.`;
       }
     );
 

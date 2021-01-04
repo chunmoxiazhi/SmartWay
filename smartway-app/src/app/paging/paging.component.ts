@@ -13,17 +13,11 @@ export class PagingComponent implements OnInit {
     if (this.page > 1) {
       this.newPage.emit(this.page - 1);
     }
-    else{
-      console.log("Page 1 reached.");
-    }
   }
 
   nextPage() {
     if (this.page < perPage) {
       this.newPage.emit(this.page + 1);
-    }
-    else{
-      console.log("Page 6 reached.");
     }
   }
 

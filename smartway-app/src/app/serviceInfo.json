@@ -2,31 +2,43 @@
     {
         "_id": "000001",
         "serviceName": "Saddle Stitch",
-        "serviceDescription": "<p>Saddle stitch is when single sheets of paper are printed on both sides, collated in page number order, folded in half and then stapled through the fold by a saddle stitch stapler.</p><p>Saddle stitch binding is an ideal and economical choice for booklets with smaller page counts. We also recommend saddle stitch for publications with less than 92 pages. For page counts over 92 pages, we recommend perfect bound booklet printing. Saddle stitch booklets are great because they will lay flat and stay open when you are flipping through the pages, making it easier to read. Saddle stitch is our most popular binding type and offers the quickest turnaround time with the most affordable and cost-effective pricing.</p>",
+        "serviceDescription": "<p>Saddle stitch is when single sheets of paper are printed on both sides, collated in page number order, folded in half and then stapled through the fold by a saddle stitch stapler.</p>",
         "serviceImage": "https://carruthersprinting.com/wp-content/uploads/2017/04/finish-bookbind-saddlestitch.jpg"
     },
     {
         "_id": "000002",
         "serviceName": "Perfect Binding",
-        "serviceDescription": "<p>With this binding method, the pages and cover are glued together at the spine with a strong yet flexible thermal glue. The other three sides of the book are then trimmed as needed to give them clean \"perfect\" edges.</p><p>The primary benefits of perfect bound books are that they look professional and offer visual appeal, are less expensive to produce than hardcover books, and they stack well. Also, the square spinal edge formed by the perfect binding method allows for the book's title or other information to be printed on the spine…something the saddle stitch and spiral binding methods do not offer.</p>",
+        "serviceDescription": "<p>With this binding method, the pages and cover are glued together at the spine with a strong yet flexible thermal glue. The other three sides of the book are then trimmed as needed to give them clean \"perfect\" edges.</p>",
         "serviceImage": "https://i.pinimg.com/564x/5c/9f/29/5c9f29a04c4200a4bb47251e59b2d5a4.jpg"
     },
     {
         "_id": "000003",
         "serviceName": "Metal Wire-O",
-        "serviceDescription": "<p>Also known as Twin Loop, Double-Loop, Double-O, Duo-Wire, or simply Wire Binding, is a popular method for joining the pages and cover of a bound document.</p><p>The Wire-O binding method utilizes pre-formed pairs of wire loops that run along a C-shaped unit. These wire loops are inserted through holes that have been punched through the book's cover and pages. The loops are then crimped closer together until they form a perfect circle, thus securing the cover and pages as an assembly, yet allowing them to open freely.</p>",
-        "serviceImage": "https://cdn.dynamixse.com/formaxprintingcom/wire-o_binding__1386359248.jpg"
+        "serviceDescription": "<p>The Wire-O binding method utilizes pre-formed pairs of wire loops that run along a C-shaped unit. These wire loops are inserted through holes that have been punched through the book's cover and pages.</p>",
+        "serviceImage": "https://printfinishingspecialties.com/wp-content/uploads/2015/08/Pewter-Wire-O-Closed.jpg"
     },
     {
         "_id": "000004",
         "serviceName": "Plastic Coil",
         "serviceDescription": "<p>Documents bound with spiral coils lay flat and the pages can turn 360 degrees around the flexible PVC coil spine. Coil binding is fast and easy and offers a wide variety of colors to choose from.</p>",
-        "serviceImage": "https://print.za.net/wp-content/uploads/2019/02/Coil-Bind-320x240.jpg"
+        "serviceImage": "https://www.binding101.com/media/magpleasure/mpblog/upload/e/d/ed178e78ccaf7816c6c4c32effc22709.jpg"
+    },
+    {
+        "_id": "000005",
+        "serviceName": "Die Cut & Pocket Folder",
+        "serviceDescription": "<p>Cuts make a paper folder look attractive. The cuts in the folder makes, viewing the paper title easier. These type of die cut folders design is exclusive. Die cut presentation folder is used in high profile organizations.</p>",
+        "serviceImage": "https://cdn.dribbble.com/users/1417217/screenshots/5921190/3-crossings---folder.png"
+    },
+    {
+        "_id": "000006",
+        "serviceName": "Cerlox / Comb Binding",
+        "serviceDescription": "<p>Perfect for workbooks and other documents that need to lay flat when open, cerlox binding is a very cost-effective binding method. We offer cerlox binding solutions in a wide range of colours and sizes and can help you find the perfect fit for your document. </p>",
+        "serviceImage": "https://www.print2go.com/images/product/Comb-Binding.jpg"
     }
 
 
 
 
-
+    
 
 ]

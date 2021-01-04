@@ -44,7 +44,6 @@ export class JobTableComponent implements OnInit, OnDestroy {
 
     this.querySub = this.route.queryParams.subscribe(params => {
       
-  // page, perPage,  service, customer, title, docket, purchase, pCount, cash, startDate, endDate, desc
       if(params['service'])
       this.service = params['service'];
      
@@ -85,8 +84,6 @@ export class JobTableComponent implements OnInit, OnDestroy {
       if(params['quote'])
       this.quote = params['quote'];
   
-  
-      // console.log(this.category);
       this.getPage(+params['page'] || 1);
      });
   }

@@ -9,7 +9,7 @@ import { ThrowStmt } from '@angular/compiler';
   templateUrl: './control-bar.component.html',
   styleUrls: ['./control-bar.component.css']
 })
-export class ControlBarComponent implements OnInit {
+export class ControlBarComponent implements OnInit, OnDestroy {
   // @Input() page;
   // @Output() searchResults = new EventEmitter();
   page: Number = 1;
@@ -51,10 +51,7 @@ export class ControlBarComponent implements OnInit {
     }
     if(this.endDate){
        eDate = this.endDate.toString();
-       console.log(eDate);
     }
-
-    this.router.navigate(['/jobs'],{queryParams: { order: 'popular' }});
   
     this.querySub = this.data.getAllJobs(1, this.service, this.customer, this.title, this.docket, this.purchase, this.pCount, this.cash, sDate,eDate, this.desc, this.quote, this.cover, this.status)
     .subscribe(data => {
@@ -72,7 +69,10 @@ export class ControlBarComponent implements OnInit {
   }
 
   ngOnDestroy() {
+
+    console.log("Control bar");
     if (this.querySub) this.querySub.unsubscribe();
   }
+
 
 }

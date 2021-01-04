@@ -11,16 +11,16 @@ import { NgForm } from '@angular/forms';
 })
 export class EditJobComponent implements OnInit {
   editableJob: Job;
-  services:any;
+  servicez:any;
 
   private job;
   constructor(private data: JobService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    console.log(2212);
     this.job = this.data.getJobById(this.route.snapshot.params['id']).subscribe(data => {
+      console.log(data);
       this.editableJob = data; 
-      this.services = data.services.toString();
+      this.servicez = data.services.toString();
     })
   }
 
@@ -32,7 +32,7 @@ export class EditJobComponent implements OnInit {
   }
 
   submitUpdateJob(validEdit: NgForm): void {
-    this.editableJob.services = this.services.split(',').map(service => service.trim());
+    this.editableJob.services = this.servicez.split(',').map(service => service.trim());
     this.data.updateJobById(this.editableJob, this.editableJob._id).subscribe( () => this.router.navigate(['/jobs']));
   }
 

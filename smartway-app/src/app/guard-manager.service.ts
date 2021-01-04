@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
-
 @Injectable({
   providedIn: 'root'
 })
-export class GuardAuthService {
+export class GuardManagerService {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(public auth: AuthService, public router: Router) { }
 
-  canActivate(): boolean {
-    if (!this.auth.isAuthenticated()) {
+    canActivate(): boolean {
+    this.auth.isManager()
+    if (this.auth.isManager() == false) {
       this.router.navigate(['/login']);
       return false;
     }
     return true;
   }
-
-
 }

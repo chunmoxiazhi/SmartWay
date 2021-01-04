@@ -10,10 +10,6 @@ export class JobService {
 
   constructor(private http: HttpClient) { }
 
-  // loginUser(userInfo):Observable<any>{
-  //   return this.http.get<Job[]>(`http://localhost:8080/jobs${ending}`);
-  // }
-   // page, service, customer, title, docket, purchase, pCount, cash, startDate, endDate, desc, quote, cover
   getAllJobs(page, service, customer, title, docket, purchase, pCount, cash, startDate, endDate, desc, quote, cover, status): Observable<any> {
 
     let pageNum = `?page=${page}&perPage=${perPage}`;
@@ -89,7 +85,6 @@ export class JobService {
 
 
   updateJobById( data: Job, id: string): Observable<any> {
-    // console.log("update");
     return this.http.put<any>(`http://localhost:8080/jobs/${id}`, data);
   }
 

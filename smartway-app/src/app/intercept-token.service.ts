@@ -1,24 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from './auth.service';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { catchError, finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InterceptTokenService implements HttpInterceptor {
+  [x: string]: any;
 
-  constructor(private a: AuthService) { }
+  constructor(private a: AuthService, private router: Router) { }
 
+private handleAuthError() {
+  this.router.navigateByUrl('login');
+}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
-    // Clone the existing request, and add the authorization header
     request = request.clone({
       setHeaders: {
         Authorization: `JWT ${this.a.getToken()}`
       }
     });
-    // Pass the request on to the next handler
-    return next.handle(request);
+    return next.handle(request).pipe(
+      catchError(
+        (err,caught)=>{
+          if(err.status === 401){
+            this.handleAuthError();
+            return of(err);
+          }
+          return throwError(err);
+        }
+      )
+    )
   }
 }

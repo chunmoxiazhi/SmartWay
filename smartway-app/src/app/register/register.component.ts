@@ -19,8 +19,6 @@ export class RegisterComponent implements OnInit {
   }
 
   addNewUser(validU: NgForm): void {
-    console.log(validU.form.value);
-    console.log(this.newUser);
     this.user.registerUser(this.newUser).subscribe( () => this.router.navigate(['/jobs']));
   }
 

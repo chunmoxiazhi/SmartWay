@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { LoginUser } from './LoginUser';
 import { User } from './User';
+import { Visitor } from './Visitor';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,8 @@ export class UserService {
   // loginUser(data: LoginUser): Observable<any> {
   //   return this.http.post<any>(`http://localhost:8080/login`, data);
   // }
-
+  questionResponse(visitor: Visitor):Observable<any> {
+  return this.http.post<any>(`http://localhost:8080/question`, visitor);
+  }
 
 }

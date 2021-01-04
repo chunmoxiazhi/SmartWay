@@ -27,14 +27,12 @@ export class NewJobComponent implements OnInit {
   }
 
   addNewJob(validNew: NgForm):void{
-    console.log("Submit");
-    console.log(validNew.form.value);
 
     if(this.newJob.isCash == undefined){
       this.newJob.isCash = false;
     }
     if(this.newJob.PONumber == undefined){
-      this.newJob.PONumber = "00000000";
+      this.newJob.PONumber = "0";
     }
     if(this.newJob.cover == undefined){
       this.newJob.cover = false;

@@ -32,19 +32,16 @@
                         <label for="pageCount" [class.text-danger]="pageCount.invalid">Page Count:</label>
                         <input type="text" class="form-control" id="pageCount" #pageCount="ngModel" name="pageCount" [(ngModel)]="newJob.pageCount"  required>
                         <span *ngIf="pageCount.errors?.required" class="help-block"><strong>Invalid page count: Please fill in blank</strong></span>
-                    <!-- </div> -->
-                    <!-- <div class="col-md-3"> -->
-                        <label for="cover">Cover:</label>
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="cover" name="cover" #cover="ngModel" name="cover" [(ngModel)]="newJob.cover"/></label>
-                        </div>
-                    <!-- </div> -->
+ 
+                </div>
+
+                <div class="form-group" [class.has-error]="title.errors">
+                    <label for="cover">Cover (Do NOT check if self-cover): <input type="checkbox" id="cover" name="cover" #cover="ngModel" name="cover" [(ngModel)]="newJob.cover"/></label>
                 </div>
 
                 <div class="form-group" [class.has-error]="quoteNumber.errors">
                     <label for="quoteNumber" [class.text-danger]="quoteNumber.invalid">Quote Number: </label>
-                    <input type="text" class="form-control" id="quoteNumber" name="quoteNumber" [(ngModel)]="newJob.quoteNumber" required pattern="[0-9 ]*" #quoteNumber="ngModel">
-                    <span *ngIf ="quoteNumber.errors?.required" class="help-block"><strong>Invalid Service: Please fill in blank</strong></span>
+                    <input type="text" class="form-control" id="quoteNumber" name="quoteNumber" [(ngModel)]="newJob.quoteNumber"  pattern="[0-9 ]*" #quoteNumber="ngModel">
                     <span *ngIf="quoteNumber.errors?.pattern" class="help-block"><strong>Invalid Tags: Special characters not allowed. Use "," to seperate services.</strong></span>
                 </div>
 
@@ -60,7 +57,6 @@
                 <div class="form-group">
                     <label for="description" >Description:</label>
                     <textarea class="form-control" style="min-height:200px" id="description" name="description" #description="ngModel" [(ngModel)]="newJob.description"  [innerHTML]="newJob.description"></textarea>
-                    <!-- <span *ngIf="description.errors?.required" class="help-block"><strong>Invalid Post: post is required</strong></span> -->
                 </div>
 
                 <div class="form-group">
@@ -83,10 +79,8 @@
 
                 <div class="form-group"> 
                     
-                    <label for="cash">Cash:</label>
-                    <div class="checkbox">
-                        <label><input type="checkbox" id="cash" name="cash" #cash="ngModel" name="cash" [(ngModel)]="newJob.isCash"/></label>
-                    </div>
+                    <label for="cash">Cash: <input type="checkbox" id="cash" name="cash" #cash="ngModel" name="cash" [(ngModel)]="newJob.isCash"/></label>
+
             </div>
 
 

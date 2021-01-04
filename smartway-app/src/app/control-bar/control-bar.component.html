@@ -4,6 +4,7 @@
         <div class="col-md-2">
             <form  #search="ngForm" (ngSubmit)="searchJobs(search)">
                 <br><br>
+                <!-- <h3><strong>Search Job</strong></h3><br> -->
                 <div class="form-group">
                     <!-- <label class="control-label" for="docket" >Docket: </label> -->
                     <input type="text" class="form-control" id="docket" name="docket" placeholder="Docket Number" [(ngModel)]="docket" autofocus>
@@ -37,12 +38,16 @@
                     <!-- <label class="control-label" for="desc" >Description: </label> -->
                     <input type="text" class="form-control" id="desc" name="desc" placeholder="Description" [(ngModel)]="desc" autofocus >
                 </div>
-                <div class="form-group">
+
+                <div class="form-group"> 
+                    <label for="cover">Cover: <label><input type="checkbox" id="cover"  name="cover" [(ngModel)]="cover"/></label></label>
+                </div>
+                <!-- <div class="form-group">
                     <label for="cover">Cover:</label>
                     <div class="checkbox">
                         <label><input type="checkbox" id="cover" name="cover"  [(ngModel)]="cover"/></label>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <label for="status" >Current Status: </label>
@@ -57,13 +62,7 @@
                     </select>
                 </div>
 
-                <div class="form-group"> 
-                    
-                    <label for="cash">Cash:</label>
-                    <div class="checkbox">
-                        <label><input type="checkbox" id="cash"  name="cash" [(ngModel)]="cash"/></label>
-                    </div>
-                </div>
+
 
                 <div class="form-group">
                     <label for="startDate" >Start Date:</label>
@@ -76,7 +75,9 @@
                     <input [ngModel]="endDate | date:'yyyy-MM-dd'" (ngModelChange)="endDate = $event" type="date" name="endDate"/>
                     <!-- <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate"  #endDate [value]="endDate" /> -->
                 </div>
-
+                <div class="form-group"> 
+                    <label for="cash">Cash: <label><input type="checkbox" id="cash"  name="cash" [(ngModel)]="cash"/></label></label>
+                </div>
 
 
 

@@ -23,10 +23,9 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    const token = localStorage.getItem('access_token');
-
-    // Note: We can also use this.jwtHelper.isTokenExpired(token) 
-    // to see if the token is expired
+    const token = this.getToken();
+    // let read = this.readToken();
+    // console.log(read);
 
     if (token) {
       console.log('token exists');
@@ -36,17 +35,13 @@ export class AuthService {
       return false;
     }
   }
+
+  isManager(): boolean{
+    let decodeToken = this.readToken();
+    return decodeToken.manager ? true : false;
+  }
   loginUser(user: User): Observable<any> {
     return this.http.post<any>(`http://localhost:8080/login`, user);
   }
-  // logoutUser(): void {
-  //   localStorage.setItem('isLoggedIn','false');    
-  //   localStorage.removeItem('token'); 
-  // }
 
-
-  // login(user: User): Observable<any> {
-  //   // Attempt to login
-  //   return this.http.post<any>('http://localhost:8080/api/login', user);
-  // }
 }

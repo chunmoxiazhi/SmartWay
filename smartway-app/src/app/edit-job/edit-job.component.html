@@ -6,9 +6,10 @@
                 <form  #validEdit="ngForm" (ngSubmit)="submitUpdateJob(validEdit)">
                     <br><br>
                     <div>
-                        <h3><strong>Docket Number: {{editableJob.docketNumber}}</strong></h3> <br>
+                        <h3><strong>Docket Number: {{editableJob.docketNumber}}</strong></h3> 
                        
                     </div>
+
     
                     <div class="form-group"[class.has-error]="customer.errors">
                         <label class="control-label" for="customer" [class.text-danger]="customer.invalid">Customer: </label>
@@ -34,16 +35,16 @@
                             <input type="text" class="form-control" id="pageCount" #pageCount="ngModel" name="pageCount" [(ngModel)]="editableJob.pageCount"  required>
                             <span *ngIf="pageCount.errors?.required" class="help-block"><strong>Invalid page count: Please fill in blank</strong></span>
                      
-                            <label for="cover">Cover:</label>
-                            <div class="checkbox">
-                                <label><input type="checkbox" id="cover" name="cover" #cover="ngModel" name="cover" [(ngModel)]="editableJob.cover"/></label>
-                            </div>
+                           
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cover">Cover (Do NOT check if self-cover): <input type="checkbox" id="cover" name="cover" #cover="ngModel" name="cover" [(ngModel)]="editableJob.cover"/></label> 
                     </div>
     
                     <div class="form-group" [class.has-error]="quoteNumber.errors">
                         <label for="quoteNumber" [class.text-danger]="quoteNumber.invalid">Quote Number: </label>
-                        <input type="text" class="form-control" id="quoteNumber" name="quoteNumber" [(ngModel)]="editableJob.quoteNumber" required pattern="[0-9 ]*" #quoteNumber="ngModel">
-                        <span *ngIf ="services.errors?.required" class="help-block"><strong>Invalid Service: Please fill in blank</strong></span>
+                        <input type="text" class="form-control" id="quoteNumber" name="quoteNumber" [(ngModel)]="editableJob.quoteNumber" pattern="[0-9 ]*" #quoteNumber="ngModel">
                         <span *ngIf="services.errors?.pattern" class="help-block"><strong>Invalid Tags: Special characters not allowed. Use "," to seperate services.</strong></span>
                     </div>
     
@@ -51,7 +52,7 @@
     
                     <div class="form-group" [class.has-error]="services.errors">
                         <label for="services" [class.text-danger]="services.invalid">Services: </label>
-                        <textarea class="form-control" id="services" name="services" [(ngModel)]="editableJob.services" required pattern="[,a-zA-Z0-9 ]*" #services="ngModel"></textarea>
+                        <textarea class="form-control" id="services" name="services" [(ngModel)]="servicez" required pattern="[,a-zA-Z0-9 ]*" #services="ngModel"></textarea>
                         <span *ngIf ="services.errors?.required" class="help-block"><strong>Invalid Service: Please fill in blank</strong></span>
                         <span *ngIf="services.errors?.pattern" class="help-block"><strong>Invalid Service: Special characters not allowed. Use "," to seperate services.</strong></span>
                     </div>
@@ -81,12 +82,13 @@
     
                     <div class="form-group"> 
                         
-                        <label for="cash">Cash:</label>
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="cash" name="cash" #cash="ngModel" name="cash" [(ngModel)]="editableJob.isCash"/></label>
-                        </div>
+                        <label for="cash">Cash: <input type="checkbox" id="cash" name="cash" #cash="ngModel" name="cash" [(ngModel)]="editableJob.isCash"/></label>
+
                 </div>
-    
+                <div style="display: flex; justify-content: flex-end">
+                    <h5><strong>Docket Created on: {{editableJob.postDate | date:'mediumDate'}}</strong></h5> <br><br><br>
+                   
+                </div>
     
     
                     <div class="pull-right">
