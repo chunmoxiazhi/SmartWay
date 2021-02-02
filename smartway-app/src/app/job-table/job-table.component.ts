@@ -35,7 +35,10 @@ export class JobTableComponent implements OnInit, OnDestroy {
   getPage(num) {
     this.querySub = this.data.getAllJobs(num, this.service, this.customer, this.title, this.docket, this.purchase, this.pCount, this.cash, this.startDate, this.endDate, this.desc, this.quote, this.cover, this.status).subscribe(data => {
       if (data.length > 0) {
+        console.log(typeof data);
+        console.log(data);
         this.jobs = data, this.page = num;
+        console.log(typeof this.jobs)
       }
     });
   }

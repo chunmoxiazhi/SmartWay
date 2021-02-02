@@ -1,0 +1,15 @@
+<header>
+    <h4 class="h4">Possible Results...</h4>
+</header>
+<div class="blog-posts" *ngFor = "let service of searchResults">
+    <a [routerLink]="['/services', service._id]">
+        <div class="item d-flex align-items-center">
+            <div class="image"><img src={{service.serviceImage}} alt="..." class="img-fluid"></div>
+                <div class="title"><strong>{{service.serviceName}}</strong>
+                    
+                </div>
+               
+            </div>
+        
+    </a>
+</div>

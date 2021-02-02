@@ -8,7 +8,7 @@ import { Service } from '../Service';
 })
 export class ServicePostComponent implements OnInit {
 
-  @Input()service: Service;
+  @Input() currentService: Service;
 
   constructor() { }
 

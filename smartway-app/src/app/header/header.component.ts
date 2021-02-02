@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) { // only read the token on "NavigationStart"
         this.token = this.auth.readToken();
-        console.log(this.token);
       }
     });
   }

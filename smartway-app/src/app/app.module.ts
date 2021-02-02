@@ -25,6 +25,11 @@ import { UserTableComponent } from './user-table/user-table.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { QuestionQueryComponent } from './question-query/question-query.component';
+import { ServiceDetailComponent } from './service-detail/service-detail.component';
+import { ServiceComponent } from './service/service.component';
+import { SearchWidgetComponent } from './search-widget/search-widget.component';
+import { RelevantServicesComponent } from './relevant-services/relevant-services.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 // import { Router } from '@angular/router';
 
 @NgModule({
@@ -47,6 +52,11 @@ import { QuestionQueryComponent } from './question-query/question-query.componen
     EditUserComponent,
     ContactUsComponent,
     QuestionQueryComponent,
+    ServiceDetailComponent,
+    ServiceComponent,
+    SearchWidgetComponent,
+    RelevantServicesComponent,
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,

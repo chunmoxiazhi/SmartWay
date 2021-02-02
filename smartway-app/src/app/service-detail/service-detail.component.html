@@ -1,0 +1,62 @@
+<div class="post-single" *ngIf= "service">
+    <div class="post-thumbnail">
+        <img src={{service.serviceImage}} alt="..." class="img-fluid" />
+    </div>
+    <div class="post-details">
+        <h1>
+            {{service.serviceName}} <a href="#"><i class="fa fa-bookmark-o"></i></a>
+        </h1>
+        <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
+            <a href="#" class="author d-flex align-items-center flex-wrap">
+                <div class="d-flex align-items-center flex-wrap">       
+                    <div class="views">
+                        <i class="icon-eye"></i> {{service.serviceViews}}
+                    </div>
+                    <div class="comments meta-last">
+                        <i class="icon-comment"></i>{{service.serviceReviews.length}}
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="post-body" [innerHTML] = "service.serviceDescription"></div>
+
+        <div class="post-comments">
+            <header>
+                <h3 class="post-h6">Customer Reviews<span class="no-of-comments">({{service.serviceReviews.length}})</span></h3>
+            </header>
+            <div class="comment" *ngFor = "let review of service.serviceReviews">
+                <div class="comment-header d-flex justify-content-between">
+                    <div class="user d-flex align-items-center">
+                        <div class="image"><img src="/assets/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="title"><strong>{{review.author}}</strong><span class="date">{{review.date| date:'mediumDate'}}</span></div>
+                    </div>
+                </div>
+                <div class="comment-body" [innerHTML] = "review.comment"></div>
+            </div>    
+            
+        </div>
+
+      <div class="add-comment">
+        <header>
+            <h3 class="post-h6">Leave a reply</h3>
+        </header>
+        <form class="commenting-form" #validR="ngForm" (ngSubmit)="reviewSubmit(validR)">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <input type="text" name="username" id="username" placeholder="Name" class="form-control" [(ngModel)]="reviewAuthor" autofocus #username="ngModel">
+                </div>
+                <div class="form-group col-md-12" [class.has-error]="usercomment.errors">
+                    <textarea name="usercomment" id="usercomment" placeholder="Type your comment" class="form-control" [(ngModel)]="reviewContent" #usercomment="ngModel"></textarea>
+                </div>
+                <div class="alert alert-danger" *ngIf="warning">
+                    {{warning}}
+                </div>
+                <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-secondary" >Submit Comment</button>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>

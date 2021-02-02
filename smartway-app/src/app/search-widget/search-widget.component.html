@@ -1,0 +1,22 @@
+<header>
+    <h3 class="h3">Search the Service</h3>
+</header>
+<form class="search-form" #validSearch="ngForm" (ngSubmit)="search(validSearch)">
+    <div class="form-group">
+      <input type="search" placeholder='What are you looking for?  (Try "Glue")' id="keyw" name="keyw" [(ngModel)]="keyword" #keyw="ngModel">
+
+      <button type="submit" class="submit"><i class="icon-search"></i></button>
+
+
+    </div>
+</form>
+
+<div class="alert alert-danger" *ngIf="warning">
+  {{warning}}
+</div>
+<div class="alert alert-danger" *ngIf="notFound">
+  {{notFound}}
+</div>
+<div class="result latest-posts" *ngIf = "searchResults" >
+  <app-search-results [searchResults]="searchResults"> </app-search-results>
+</div>

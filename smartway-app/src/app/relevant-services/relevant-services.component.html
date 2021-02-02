@@ -1,0 +1,22 @@
+<header>
+    <h3 class="h3">Relevant Services</h3>
+</header>
+<div class="blog-posts" *ngFor = "let service of services">
+    <a [routerLink]="['/services', service._id]">
+        <div class="item d-flex align-items-center">
+            <div class="image"><img src={{service.serviceImage}} alt="..." class="img-fluid"></div>
+                <div class="title"><strong>{{service.serviceName}}</strong>
+                    <div class="d-flex align-items-center">
+                        <div class="views">
+                            <i class="icon-eye"></i> {{service.serviceViews}}
+                        </div>
+                        <div class="comments">
+                            <i class="icon-comment"></i>{{service.serviceReviews.length}}
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        
+    </a>
+</div>

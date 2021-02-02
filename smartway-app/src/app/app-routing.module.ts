@@ -11,6 +11,7 @@ import { RegisterComponent} from './register/register.component';
 import { UserTableComponent} from './user-table/user-table.component';
 import { EditUserComponent} from './edit-user/edit-user.component';
 import { ContactUsComponent} from './contact-us/contact-us.component';
+import { ServiceComponent} from './service/service.component'
 
 import { GuardAuthService } from './guard-auth.service';
 import { GuardManagerService } from './guard-manager.service';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent},
   { path: "login", component: LoginComponent},
   { path: "services", component: BindingServicesComponent},
+  { path: "services/:id", component: ServiceComponent},
   { path: "contactus", component: ContactUsComponent},
   { path: "jobs", component: JobTableComponent, canActivate: [GuardAuthService]},
   { path: 'jobs/newJob', component: NewJobComponent, canActivate: [GuardAuthService] },

@@ -24,8 +24,6 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     const token = this.getToken();
-    // let read = this.readToken();
-    // console.log(read);
 
     if (token) {
       console.log('token exists');
